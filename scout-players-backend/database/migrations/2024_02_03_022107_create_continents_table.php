@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('world_federations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->boolean('is_independent')->default(false);
+        Schema::create('continents', function (Blueprint $table) {
+            $table->increments('id');   
+            $table->string('name', 100);
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('world_federations');
+        Schema::dropIfExists('continents');
     }
 };
