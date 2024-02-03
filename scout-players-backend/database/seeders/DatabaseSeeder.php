@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             WorldFederationSeeder::class,
             ContinentSeeder::class,
+            CountrySeeder::class
         ]);
     }
 }
