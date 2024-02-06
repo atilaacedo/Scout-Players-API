@@ -13,4 +13,14 @@ class Continent extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function countries()
+    {
+        return $this->hasMany(Country::class);
+    }
+
+    public function continentFederation()
+    {
+        return $this->hasOne(ContinentFederation::class);
+    }
 }

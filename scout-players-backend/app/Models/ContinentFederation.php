@@ -2,21 +2,21 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Continent;
+use App\Models\WorldFederation;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Country extends Model
+class ContinentFederation extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'countries';
+    protected $table = 'continent_federations';
 
     protected $fillable = [
+        'name',
         'continent_id',
-        'name'
+        'world_federation_id'
     ];
 
     public function continent() : BelongsTo
@@ -24,8 +24,8 @@ class Country extends Model
         return $this->belongsTo(Continent::class);
     }
 
-    public function nationalFederation() : hasOne
+    public function worldFederation() : BelongsTo
     {
-        return $this->hasOne(NationalFederation::class);
+        return $this->belongsTo(WorldFederation::class);
     }
 }
